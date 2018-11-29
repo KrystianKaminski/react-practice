@@ -26,4 +26,35 @@ nums.push(5)
 const sayHello = name => console.log(`Hello ${name}`)
 
 
-sayHello('Krystian')
+// sayHello('Krystian')
+
+const fruits = ['Apples', 'Oranges', 'Grapes']
+
+// FOR EACH
+
+// fruits.forEach(fruit => console.log(fruit))
+
+// MAP
+
+const singleFruit = fruits.map((fruit) => fruit.slice(0, -1).toUpperCase())
+
+// console.log(singleFruit)
+
+// FILTER
+
+const people = [{
+        id: 1,
+        name: 'Karen'
+    },
+    {
+        id: 2,
+        name: 'Bob'
+    },
+    {
+        id: 3,
+        name: 'Sharon'
+    }
+]
+
+const people2 = people.filter(person => person.id != 2)
+console.log(people2)
