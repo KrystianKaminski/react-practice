@@ -16,4 +16,14 @@ person.name = 'Jack'
 const nums = [1, 2, 3, 4]
 nums.push(5)
 
-console.log(nums)
+
+// ARROW FUNCTIONS
+
+// function sayHello() {
+//     console.log('Hello')
+// }
+
+const sayHello = name => console.log(`Hello ${name}`)
+
+
+sayHello('Krystian')
