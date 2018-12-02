@@ -10,6 +10,7 @@ class Test extends Component {
         console.log('componentWillMount...')
     }
 
+
     render() {
         return (
             <div>

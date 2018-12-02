@@ -47,6 +47,10 @@ export class Provider extends Component {
             this.setState(state => reducer(state, action))
     }
 
+    componentDidUpdate() {
+        console.log('componentDidUpdate...')
+    }
+
     render() {
         return (<Context.Provider value={
             this.state
