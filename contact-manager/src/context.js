@@ -11,6 +11,11 @@ const reducer = (state, action) => {
                 ...state,
                 contacts: state.contacts.filter(contact => contact.id !== action.payload)
             }
+        case 'ADD_CONTACT':
+            return {
+                ...state,
+                contacts: [action.payload, ...state.contacts]
+            }
         default:
             return state
     }
@@ -20,36 +25,35 @@ const reducer = (state, action) => {
 export class Provider extends Component {
     state = {
         contacts: [{
-                id: 1,
-                name: 'John Doe',
-                email: 'jdoe@gmail.com',
-                phone: '555-555-5555'
-            },
-            {
-                id: 2,
-                name: 'Karen Williams',
-                email: 'karen@gmail.com',
-                phone: '333-333-3333'
-            },
-            {
-                id: 3,
-                name: 'Thierry Henry',
-                email: 'henry@gmail.com',
-                phone: '222-222-2222'
-            }
+            id: 1,
+            name: 'John Doe',
+            email: 'jdoe@gmail.com',
+            phone: '555-555-5555'
+        },
+        {
+            id: 2,
+            name: 'Karen Williams',
+            email: 'karen@gmail.com',
+            phone: '333-333-3333'
+        },
+        {
+            id: 3,
+            name: 'Thierry Henry',
+            email: 'henry@gmail.com',
+            phone: '222-222-2222'
+        }
         ],
         dispatch: action =>
             this.setState(state => reducer(state, action))
     }
 
     render() {
-        return ( <
-            Context.Provider value = {
-                this.state
-            } > {
+        return (<Context.Provider value={
+            this.state
+        } > {
                 this.props.children
-            } <
-            /Context.Provider>
+            }
+        </Context.Provider>
         )
     }
 }
