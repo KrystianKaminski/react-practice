@@ -6,6 +6,10 @@ class Test extends Component {
         console.log('componentDidMount...')
     }
 
+    componentWillMount() {
+        console.log('componentWillMount...')
+    }
+
     render() {
         return (
             <div>
