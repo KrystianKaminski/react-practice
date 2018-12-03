@@ -8,12 +8,22 @@ class Contact extends Component {
         showContactInfo: false
     }
 
-    onDeleteClick = (id, dispatch) => {
-        axios.delete(`https://jsonplaceholder.typicode.com/users${id}`)
-            .then(res => dispatch({
+    onDeleteClick = async (id, dispatch) => {
+        try {
+            await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+            dispatch({
                 type: 'DELETE_CONTACT',
                 payload: id
-            }))
+            })
+
+        } catch (e) {
+            // Don't do that with real database
+
+            dispatch({
+                type: 'DELETE_CONTACT',
+                payload: id
+            })
+        }
 
     }
 
